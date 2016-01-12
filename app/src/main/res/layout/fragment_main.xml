@@ -11,17 +11,24 @@
     <TextView android:text="@string/instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/instructions_text_view"
-        />
+        android:id="@+id/setup_text_view"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"/>
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/instructions_text_view"
+        android:id="@+id/punchline_text_view"
+              android:layout_below="@+id/setup_text_view"
+              android:layout_centerHorizontal="true"/>
+
+    <Button android:id="@+id/btn_tell_joke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/button_text"
         android:onClick="tellJoke"
-
-        />
+        android:layout_below="@+id/punchline_text_view"
+        android:layout_centerHorizontal="true"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"

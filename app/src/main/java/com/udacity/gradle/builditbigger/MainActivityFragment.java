@@ -5,7 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.davemcpherson.Joke;
+import com.davemcpherson.MyJokes;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -15,13 +19,29 @@ import com.google.android.gms.ads.AdView;
  */
 public class MainActivityFragment extends Fragment {
 
+    private MyJokes myJokes;
+
     public MainActivityFragment() {
+        myJokes = new MyJokes();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
+
+        Button btnTellJoke = (Button)root.findViewById(R.id.btn_tell_joke);
+        final TextView setupTextView = (TextView) root.findViewById(R.id.setup_text_view);
+        final TextView punchLineTextView = (TextView) root.findViewById(R.id.punchline_text_view);
+
+        btnTellJoke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Joke joke = myJokes.getRandomJoke();
+                setupTextView.setText(joke.getSetUp());
+                punchLineTextView.setText(joke.getPunchLine());
+            }
+        });
 
         AdView mAdView = (AdView) root.findViewById(R.id.adView);
         // Create an ad request. Check logcat output for the hashed device ID to
@@ -33,4 +53,5 @@ public class MainActivityFragment extends Fragment {
         mAdView.loadAd(adRequest);
         return root;
     }
+
 }
