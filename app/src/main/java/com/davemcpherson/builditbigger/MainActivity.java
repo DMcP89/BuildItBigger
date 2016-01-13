@@ -1,13 +1,12 @@
 package com.davemcpherson.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.davemcpherson.displayjokesactivity.DisplayJokeActivity;
+import com.davemcpherson.builditbigger.async.FetchJokesTask;
 import com.udacity.gradle.builditbigger.R;
 
 
@@ -44,8 +43,8 @@ public class MainActivity extends ActionBarActivity {
 
     public void tellJoke(View view){
         //Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, DisplayJokeActivity.class);
-        startActivity(intent);
+        new FetchJokesTask().execute(this);
+
     }
 
 

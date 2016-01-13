@@ -30,4 +30,13 @@ public class Joke {
     public void setPunchLine(String punchLine) {
         this.punchLine = punchLine;
     }
+
+    @Override
+    public String toString() {
+        return setUp + "\n" + punchLine;
+    }
+
+    public String getData(){
+        return setUp + "\n" + punchLine;
+    }
 }

@@ -32,10 +32,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':myjokes')
     compile project(':displayjokesactivity')
+    compile project(path: ':backend', configuration: 'android-endpoints')
+    compile 'com.android.support:appcompat-v7:22.1.1'
+
     // Added for AdMob
     freeCompile 'com.google.android.gms:play-services:7.3.0'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile project(path: ':backend', configuration: 'android-endpoints')
 }
