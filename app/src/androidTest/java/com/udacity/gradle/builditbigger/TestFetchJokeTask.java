@@ -29,6 +29,6 @@ public class TestFetchJokeTask extends InstrumentationTestCase {
                 assertEquals(result.length()>0,true);
                 //fail();
             }
-        }.execute();
+        }.execute(getInstrumentation().getContext());
     }
 }

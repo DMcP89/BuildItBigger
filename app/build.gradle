@@ -26,6 +26,7 @@ android {
 
         paid {
             applicationId "com.davemcpherson.builditbigger.paid"
+
         }
     }
 }
